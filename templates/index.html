@@ -2,65 +2,78 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Fake SMSC Simulator</title>
 
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet"
+          href="/static/style.css">
+
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>📡 Fake SMSC Dashboard</h1>
+    <h1>
+        📡 Fake SMSC Dashboard
+    </h1>
 
-        <div class="cards">
+    <div class="cards">
 
-            <div class="card">
-                <h2>Total</h2>
-                <p id="total">0</p>
-            </div>
-
-            <div class="card delivered">
-                <h2>Delivered</h2>
-                <p id="delivered">0</p>
-            </div>
-
-            <div class="card failed">
-                <h2>Failed</h2>
-                <p id="failed">0</p>
-            </div>
-
-            <div class="card pending">
-                <h2>Pending</h2>
-                <p id="pending">0</p>
-            </div>
-
+        <div class="card">
+            <h2>Total</h2>
+            <p id="total">0</p>
         </div>
 
-        <table>
+        <div class="card success">
+            <h2>Delivered</h2>
+            <p id="delivered">0</p>
+        </div>
 
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>To</th>
-                    <th>Priority</th>
-                    <th>Status</th>
-                    <th>Latency</th>
-                    <th>Campaign</th>
-                    <th>Created At</th>
-                </tr>
-            </thead>
+        <div class="card failed">
+            <h2>Failed</h2>
+            <p id="failed">0</p>
+        </div>
 
-            <tbody id="messagesTable">
-            </tbody>
-
-        </table>
+        <div class="card pending">
+            <h2>Pending</h2>
+            <p id="pending">0</p>
+        </div>
 
     </div>
 
-    <script src="/static/app.js"></script>
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+            <th>To</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Latency</th>
+            <th>Campaign</th>
+            <th>Created At</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody id="messagesTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script src="/static/app.js"></script>
 
 </body>
-
 </html>

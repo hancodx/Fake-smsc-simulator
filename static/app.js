@@ -4,7 +4,8 @@ async function loadMessages() {
 
     const messages = await response.json();
 
-    const table = document.getElementById("messagesTable");
+    const table =
+        document.getElementById("messagesTable");
 
     table.innerHTML = "";
 
@@ -62,11 +63,13 @@ async function loadStats() {
 
 
 function refreshDashboard() {
+
     loadMessages();
+
     loadStats();
 }
 
 
-setInterval(refreshDashboard, 1000);
+setInterval(refreshDashboard, 3000);
 
 refreshDashboard();

@@ -5,14 +5,16 @@ def generate_status():
 
     rand = random.randint(1, 100)
 
-    if rand <= 70:
+    # Telecom simulation
+    if rand <= 80:
         return "DELIVERED"
 
-    elif rand <= 90:
+    elif rand <= 95:
         return "PENDING"
 
     return "FAILED"
 
 
 def generate_latency():
-    return random.randint(100, 3000)
+
+    return random.randint(50, 800)

@@ -1,21 +1,48 @@
 import time
-from datetime import datetime
+import random
+import uuid
 
 from services.storage import messages
-from utils.simulator import generate_status, generate_latency
 
+def process_sms(data):
 
-def process_sms(message_data):
+    # LATENCY
+    latency = random.randint(5, 50)
 
-    latency = generate_latency()
-
-    # Simulate telecom processing delay
     time.sleep(latency / 1000)
 
-    status = generate_status()
+    # STATUS
+    status = random.choices(
+        ["DELIVERED", "FAILED", "PENDING"],
+        weights=[85, 10, 5]
+    )[0]
 
-    message_data["status"] = status
-    message_data["latency"] = latency
-    message_data["processedAt"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    # SMS OBJECT
+    sms = {
 
-    messages.append(message_data)
+        "id": str(uuid.uuid4()),
+
+        "to": data.get("to"),
+
+        "message": data.get("message"),
+
+        "campaignId": data.get("campaignId"),
+
+        "priority": data.get("priority"),
+
+        "status": status,
+
+        "latency": latency,
+
+        "createdAt": time.strftime(
+            "%Y-%m-%d %H:%M:%S"
+        )
+    }
+
+    # STORE
+    messages.insert(0, sms)
+
+    # LIMIT MEMORY
+    if len(messages) > 100000:
+
+        messages.pop()
